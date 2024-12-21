@@ -44,9 +44,6 @@ export const POST = async ({ request }) => {
         `;
 	} else {
 		let { userInput } = body;
-		console.log('yes');
-		console.log(body);
-		console.log(userInput);
 		prompt = `
       Вы являетесь ИИ-помощником, интегрированным в веб-приложение для заметок. Пользователь сохранил заметку со следующим содержанием:
 
@@ -70,7 +67,7 @@ export const POST = async ({ request }) => {
 	}
 
 	const stream = await together.chat.completions.create({
-		model: 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo',
+		model: 'Qwen/QwQ-32B-Preview',
 		messages: [{ role: 'user', content: prompt }],
 		stream: false,
 		temperature: 0.7,
