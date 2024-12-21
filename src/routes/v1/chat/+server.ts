@@ -73,7 +73,10 @@ export const POST = async ({ request }) => {
 		model: 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo',
 		messages: [{ role: 'user', content: prompt }],
 		stream: false,
-		temperature: 0.2
+		temperature: 0.7,
+		repetition_penalty: 1,
+		top_k: 50,
+		top_p: 0.7
 	});
 
 	return new Response(JSON.stringify(stream), {
