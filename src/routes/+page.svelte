@@ -123,7 +123,7 @@
 				bind:this={textField}
 				class="resize-none rounded-lg border p-2"
 				placeholder="Введите заметку"
-				rows="3"
+				rows="5"
 			></textarea>
 			<section class="flex gap-4 self-end">
 				<button onclick={clear} class="w-max border bg-red-600 p-2 font-bold text-white">
@@ -146,7 +146,7 @@
 						id={note.id}
 						text={note.text}
 						timestamp={note.timestamp}
-						remove="{async () => {
+						remove={async () => {
 							let request = await fetch('/v1/notes', {
 								method: 'DELETE',
 								body: JSON.stringify({ id: note.id })
@@ -157,7 +157,7 @@
 							if (request.ok) {
 								notesArray.splice(index, 1);
 							}
-						}},"
+						}}
 						{askAbout}
 					/>
 				{/each}

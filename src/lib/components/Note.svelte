@@ -38,10 +38,15 @@
 		bind:value={text}
 		disabled
 		class="resize-none rounded-lg border border-gray-200 p-2"
-		rows="4"
+		rows="5"
 	></textarea>
 	<section class="flex w-full items-end justify-between gap-4">
-		<button onclick={remove} class="w-max">
+		<button
+			onclick={async () => {
+				await remove();
+			}}
+			class="w-max"
+		>
 			<svg
 				fill="#FF0000"
 				version="1.1"
@@ -97,7 +102,7 @@
 				<button
 					class="self-end"
 					onclick={async () => {
-						askAbout(text);
+						await askAbout(text);
 					}}
 					><svg
 						width="32px"

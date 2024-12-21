@@ -3,7 +3,7 @@ import { randomUUID } from 'crypto';
 
 export const load = async ({ cookies }) => {
 	if (!cookies.get('todo-id')) {
-		cookies.set('todo-id', randomUUID(), { path: '/' });
+		cookies.set('todo-id', randomUUID(), { path: '/', maxAge: 157680000 });
 	}
 
 	let cookie_id = cookies.get('todo-id');
