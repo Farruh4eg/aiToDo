@@ -67,13 +67,9 @@ export const POST = async ({ request }) => {
 	}
 
 	const stream = await together.chat.completions.create({
-		model: 'Qwen/QwQ-32B-Preview',
+		model: 'meta-llama/Llama-3.3-70B-Instruct-Turbo',
 		messages: [{ role: 'user', content: prompt }],
-		stream: false,
-		temperature: 0.7,
-		repetition_penalty: 1,
-		top_k: 50,
-		top_p: 0.7
+		stream: false
 	});
 
 	return new Response(JSON.stringify(stream), {
